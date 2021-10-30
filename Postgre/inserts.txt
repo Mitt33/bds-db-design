@@ -1,4 +1,4 @@
---inserty--
+
 INSERT INTO library.country (country_name) VALUES ('Czech Republic');
 INSERT INTO library.country (country_name) VALUES ('Poland');
 INSERT INTO library.country (country_name) VALUES ('Slovakia');
