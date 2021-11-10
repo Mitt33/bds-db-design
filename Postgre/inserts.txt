@@ -138,14 +138,14 @@ INSERT INTO library.library(library_name, adress_id) VALUES ('Knihovna Vyškov',
 INSERT INTO library.library(library_name, adress_id) VALUES ('Knihovna Ratibořice', '4');
 INSERT INTO library.library(library_name, adress_id) VALUES ('Knihovna Lesná', '5');
 
-INSERT INTO library.book_in_library( isbn, library_id) VALUES ('145', '1');
-INSERT INTO library.book_in_library( isbn, library_id) VALUES ('24574888', '2');
-INSERT INTO library.book_in_library( isbn, library_id) VALUES ('475224', '3');
-INSERT INTO library.book_in_library( isbn, library_id) VALUES ('201202', '4');
-INSERT INTO library.book_in_library( isbn, library_id) VALUES ('73922', '5');
+INSERT INTO library.book_in_library( book_id, library_id) VALUES ('5', '1');
+INSERT INTO library.book_in_library( book_id, library_id) VALUES ('6', '2');
+INSERT INTO library.book_in_library( book_id, library_id) VALUES ('7', '3');
+INSERT INTO library.book_in_library( book_id, library_id) VALUES ('8', '4');
+INSERT INTO library.book_in_library( book_id, library_id) VALUES ('9', '5');
 
-INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt@seznam.cz', '456 756 785' );
-INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt1@seznam.cz', '012 756 785' );
+INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt@centrum.cz', '456 756 785' );
+INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt1@gmail.com', '012 756 785' );
 INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt2@seznam.cz', '456 756 785' );
 INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt3@seznam.cz', '789 756 785' );
 INSERT INTO library.member_contacts(email, phone)VALUES ('kontakt4@seznam.cz', '124 756 785' );
@@ -162,35 +162,35 @@ INSERT INTO library.loaned_book(book_in_library_id, member_id, date_loaned, date
 INSERT INTO library.loaned_book(book_in_library_id, member_id, date_loaned, date_due, date_returned) VALUES ( '4', '4', '2020-04-16', '2020-06-16', '2020-07-08');
 INSERT INTO library.loaned_book(book_in_library_id, member_id, date_loaned, date_due, date_returned) VALUES ( '5', '5', '2020-04-05', '2020-06-05', '2020-03-08');
 
-INSERT INTO library.book_has_literature_category(book_isbn, literature_category_literature_category)VALUES ('24574888', '1');
-INSERT INTO library.book_has_literature_category(book_isbn, literature_category_literature_category)VALUES ('145', '2');
-INSERT INTO library.book_has_literature_category(book_isbn, literature_category_literature_category)VALUES ('475224', '3');
-INSERT INTO library.book_has_literature_category(book_isbn, literature_category_literature_category)VALUES ('201202', '4');
-INSERT INTO library.book_has_literature_category(book_isbn, literature_category_literature_category)VALUES ('73922', '5');
+INSERT INTO library.book_has_literature_category(book_book_id, literature_category_literature_category)VALUES ('1', '1');
+INSERT INTO library.book_has_literature_category(book_book_id, literature_category_literature_category)VALUES ('2', '2');
+INSERT INTO library.book_has_literature_category(book_book_id, literature_category_literature_category)VALUES ('3', '3');
+INSERT INTO library.book_has_literature_category(book_book_id, literature_category_literature_category)VALUES ('4', '4');
+INSERT INTO library.book_has_literature_category(book_book_id, literature_category_literature_category)VALUES ('5', '5');
 
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('24574888', '1');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('145', '2');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('475224', '3');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('201202', '4');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('73922', '5');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('1', '1');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('2', '2');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('3', '3');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('4', '4');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('5', '5');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('6', '6');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('7', '7');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('8', '8');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('9', '9');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('10', '10');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('11', '11');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('12', '12');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('13', '13');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('14', '14');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('15', '15');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('16', '16');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('17', '17');
-INSERT INTO library.book_has_author(book_isbn, author_author_id)VALUES ('18', '18');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('20', '1');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('21', '2');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('22', '3');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('23', '4');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('24', '5');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('1', '1');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('2', '2');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('3', '3');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('4', '4');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('5', '5');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('6', '6');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('7', '7');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('8', '8');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('9', '9');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('10', '10');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('11', '11');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('12', '12');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('13', '13');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('14', '14');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('15', '15');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('16', '16');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('17', '17');
+INSERT INTO library.book_has_author(book_book_id, author_author_id)VALUES ('18', '18');
 
 
 

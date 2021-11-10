@@ -28,11 +28,12 @@ CREATE TABLE IF NOT EXISTS publishing_house (
   PRIMARY KEY (publishing_house_id));
 
 CREATE TABLE IF NOT EXISTS book (
-  ISBN BIGSERIAL NOT NULL,
+  book_id BIGSERIAL NOT NULL,
+  isbn INT NOT NULL,
   book_title VARCHAR(45) NOT NULL,
   publishing_house_id INT NOT NULL,
   date_published DATE,
-  PRIMARY KEY (ISBN),
+  PRIMARY KEY (book_id),
   CONSTRAINT publishing_house_id
     FOREIGN KEY (publishing_house_id)
     REFERENCES publishing_house (publishing_house_id)
@@ -65,12 +66,12 @@ CREATE TABLE IF NOT EXISTS library (
 
 CREATE TABLE IF NOT EXISTS book_in_library (
   book_in_library_id BIGSERIAL NOT NULL,
-  ISBN INT NOT NULL,
+  book_id INT NOT NULL,
   library_id INT NOT NULL,
   PRIMARY KEY (book_in_library_id),
-  CONSTRAINT ISBN
-    FOREIGN KEY (ISBN)
-    REFERENCES book (ISBN)
+  CONSTRAINT book_id
+    FOREIGN KEY (book_id)
+    REFERENCES book (book_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT library_id
@@ -123,12 +124,12 @@ CREATE TABLE IF NOT EXISTS loaned_book (
     ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS book_has_literature_category (
-  book_ISBN INT NOT NULL,
+  book_book_id INT NOT NULL,
   literature_category_literature_category INT NOT NULL,
-  PRIMARY KEY (book_ISBN, literature_category_literature_category),
+  PRIMARY KEY (book_book_id, literature_category_literature_category),
   CONSTRAINT fk_book_has_literature_category_book1
-    FOREIGN KEY (book_ISBN)
-    REFERENCES book (ISBN)
+    FOREIGN KEY (book_book_id)
+    REFERENCES book (book_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_book_has_literature_category_literature_category1
@@ -138,12 +139,12 @@ CREATE TABLE IF NOT EXISTS book_has_literature_category (
     ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS book_has_author (
-  book_ISBN INT NOT NULL,
+  book_book_id INT NOT NULL,
   author_author_id INT NOT NULL,
-  PRIMARY KEY (book_ISBN, author_author_id),
+  PRIMARY KEY (book_book_id, author_author_id),
   CONSTRAINT fk_book_has_author_book1
-    FOREIGN KEY (book_ISBN)
-    REFERENCES book (ISBN)
+    FOREIGN KEY (book_book_id)
+    REFERENCES book (book_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_book_has_author_author1
