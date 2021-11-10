@@ -1,8 +1,9 @@
-#1. projekt do pøedmìtu BPC-BDS
-Tento repozitáø slouí k odevzdání náleitostí k projektu z pøedmìtu BPC-BDS.
-Obsahuje sloku postgre, kde je skript k vytvoøení databáze a soubor s inserty
-slouícími k naplnìní databáze daty. Ve sloce MySQL je skript v jazyce MySQL
-vygenerován automaticky nástrojem MySQL Workbech. Repozitáø také obsahuje 
-obrázek E-R diagramu návrhu databáze. 
-##E-R diagram
-![diagram] (diagram.png)
+# 1. projekt do pÅ™edmÄ›tu BPC-BDS
+Tento repozitÃ¡Å™ slouÅ¾Ã­ k odevzdÃ¡nÃ­ nÃ¡leÅ¾itostÃ­ k projektu z pÅ™edmÄ›tu BPC-BDS.
+Obsahuje sloÅ¾ku postgre, kde je skript k vytvoÅ™enÃ­ databÃ¡ze a soubor s inserty
+slouÅ¾Ã­cÃ­mi k naplnÄ›nÃ­ databÃ¡ze daty. Ve sloÅ¾ce MySQL je skript v jazyce MySQL
+vygenerovÃ¡n automaticky nÃ¡strojem MySQL Workbech. RepozitÃ¡Å™ takÃ© obsahuje 
+obrÃ¡zek E-R diagramu nÃ¡vrhu databÃ¡ze. 
+## E-R diagram
+
+![diagram](diagram.png)
