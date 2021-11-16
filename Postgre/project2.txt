@@ -81,32 +81,18 @@ group by author_name, author_surname, book_title  having book_title IS NOT NULL;
 
 --Modify the database from the first project assignment to improve integrity constraints (e.g., reduce the size for varchar columns), set cascading
 ALTER TABLE "adress" ALTER COLUMN "other_details" TYPE VARCHAR(150);
----adress
-alter table adress drop constraint country_id, add constraint country_id foreign key (country_id) references country (country_id) on delete cascade;
----book
-alter table book drop constraint publishing_house_id, add constraint publishing_house_id foreign key (publishing_house_id) references publishing_house (publishing_house_id) on delete cascade;
----library
-alter table "library" drop constraint adress_id, add constraint adress_id foreign key (adress_id) references adress (adress_id) on delete cascade;
 ---book_in_library
 alter table "book_in_library" drop constraint book_id, add constraint book_id foreign key (book_id) references book (book_id) on delete cascade;
 alter table "book_in_library" drop constraint library_id, add constraint library_id foreign key (library_id) references "library" (library_id) on delete cascade;
 ---member
-alter table "member" drop constraint adress_id, add constraint adress_id foreign key (adress_id) references adress (adress_id) on delete cascade;
 alter table "member" drop constraint fk_member_member_contacts1, add constraint fk_member_member_contacts1 foreign key (member_contacts_id) references member_contacts (member_contacts_id) on delete cascade;
----loaned_book
+--loaned_book
 alter table "loaned_book" drop constraint book_in_library_id, add constraint book_in_library_id foreign key (book_in_library_id) references book_in_library (book_in_library_id) on delete cascade;
 alter table "loaned_book" drop constraint member_id, add constraint member_id foreign key (member_id) references member (member_id) on delete cascade;
----book_has_literature_category
-alter table "book_has_literature_category" drop constraint fk_book_has_literature_category_book1, add constraint fk_book_has_literature_category_book1 foreign key (book_book_id) references book (book_id) on delete cascade;
-alter table "book_has_literature_category" drop constraint fk_book_has_literature_category_literature_category1, add constraint fk_book_has_literature_category_literature_category1 foreign key (literature_category_literature_category) references literature_category (literature_category_id) on delete cascade;
----book_has_author
-alter table "book_has_author" drop constraint fk_book_has_author_book1, add constraint fk_book_has_author_book1 foreign key (book_book_id) references book (book_id) on delete cascade;
-alter table "book_has_author" drop constraint fk_book_has_author_author1, add constraint fk_book_has_author_author1 foreign key (author_author_id) references author (author_id) on delete cascade;
-
 
 --Create database indexes (create it only on columns where it can make a sense – explain in the provided document why it make sense on a certain column(s))
-select * from author WHERE author_name like 'A%';
-create index a_idx on author(author_name);
+CREATE INDEX idx_author_surname ON author ("author_surname");
+EXPLAIN SELECT * FROM "author" WHERE "author_surname" like 'A%';
 
 --Create arbitrary database procedure (consider some complex case)
 CREATE OR REPLACE PROCEDURE insert_publishing_house(publishing_house_id int, publishing_house_name VARCHAR(45))
@@ -140,7 +126,6 @@ CREATE MATERIALIZED VIEW statistics_materialized_view AS
 	member m on b.member_id = m.member_id
 	where date_loaned BETWEEN '2020-01-01' AND '2021-01-01'
 	GROUP BY b.loaned_book_id, b.book_in_library_id, m.member_id, b.date_loaned, b.date_due, b.date_returned;
-
 
 --Create two roles teacher and student in your database. Assign for teacher privileges to
 --SELECT, INSERT, UPDATE, and DELETE everything in arbitrary table. Furthermore, setfor teacher the possibility to view only certain fields (e.g., without salary from”person“ oryour”user“ object). For student assign a possibility to select only certain tables.
